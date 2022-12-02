@@ -11,6 +11,22 @@ addEventListener("fetch", (event) => {
 async function handleRequest(request) {
 	const { pathname } = new URL(request.url);
 
+	if (pathname.toString() === ("/")) {
+		return new Response(JSON.stringify({
+			status: "Running!",
+			endpoints: [
+				{
+					endpoint: "/hamropatro",
+					description: "Holidays from https://www.hamropatro.com/nepali-public-holidays"
+				},
+				{
+					endpoint: "/nepalipatro",
+					description: "Holidays from https://api.nepalipatro.com.np/goverment-holidays/2079"
+				}
+			]
+		}));
+	}
+
 	if (pathname.startsWith("/hamropatro")) {
 		return fetch('https://www.hamropatro.com/nepali-public-holidays')
 			.then(response => response.text())
