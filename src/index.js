@@ -11,7 +11,7 @@ addEventListener("fetch", (event) => {
 async function handleRequest(request) {
 	const { pathname } = new URL(request.url);
 
-	if (pathname.startsWith("/")) {
+	if (pathname.startsWith("/hamropatro")) {
 		return fetch('https://www.hamropatro.com/nepali-public-holidays')
 			.then(response => response.text())
 			.then(text => {
@@ -32,6 +32,22 @@ async function handleRequest(request) {
 					});
 				});
 				return new Response(JSON.stringify(holidays));
+			});
+	}else if(pathname.startsWith("/nepalipatro")){
+		return fetch("https://api.nepalipatro.com.np/goverment-holidays/2079")
+		.then(response => response.json())
+			.then(holidays => {
+				let response = [];
+
+				for(let holiday of holidays){
+					response.push({
+						event: JSON.parse(holiday.description).en,
+						nepaliDate: holiday.bs,
+						englishDate: holiday.ad
+					})
+				}
+
+				return new Response(JSON.stringify(response));
 			});
 	}
 }
