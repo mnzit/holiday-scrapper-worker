@@ -1,5 +1,7 @@
-> scrap from hamropatro
-[/nepalipatro]([https://www.google.com](https://holiday-scrapper.mnzit.workers.dev/nepalipatro))
+> Scrap from hamropatro
+
+* [/nepalipatro](https://holiday-scrapper.mnzit.workers.dev/nepalipatro)
 
 > Maps nepalipatro rest api
-[/hamropatro]([https://www.google.com](https://holiday-scrapper.mnzit.workers.dev/hamropatro))
+
+* [/hamropatro](https://holiday-scrapper.mnzit.workers.dev/hamropatro)
